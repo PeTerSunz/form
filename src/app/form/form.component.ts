@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from '@angular/forms';
 import { User } from '../user';
+
 
 @Component({
   selector: 'app-form',
@@ -10,7 +11,7 @@ import { User } from '../user';
 export class FormComponent implements OnInit {
 
   formGroup: FormGroup;
-
+  @Output()change = new EventEmitter();
   constructor(
    private fb: FormBuilder
   ){
@@ -49,6 +50,7 @@ export class FormComponent implements OnInit {
           const {firstName, lastName, Age, Email} = form.value;
           console.log(firstName, lastName, Age, Email);
           const user = new User(firstName, lastName, Email, Age);
+          this.change.emit(user);
           console.log(user);
         } else{
           ['firstName', 'lastName', 'Age', 'Email'].forEach((key: string) => {
