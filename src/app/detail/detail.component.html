@@ -1,3 +1,4 @@
-<p>
-  detail works!
-</p>
+<P>First Name : {{user?.firstName || '-'}}</P>   <!-- แบบย่อ -->
+<P>Last Name : {{user?.lastName || '-'}}</P>
+<P>Age : {{user?.Age || '-'}}</P>
+<P>E-mail : {{user? user.Email : '-'}}</P> <!-- แบบเต็ม -->

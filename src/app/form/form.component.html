@@ -4,24 +4,74 @@
    <input type="text"
    formControlName = "firstName"
    placeholder="first name">
- </div>
+
+   <label style="color: tomato;"
+   *ngIf=
+   "formGroup.get('firstName').invalid &&
+   formGroup.get('firstName').touched &&
+   formGroup.get('firstName').errors['required']"
+   >Required.</label>
+
+   <label style="color: tomato;"
+   *ngIf=
+   "formGroup.get('firstName').invalid &&
+   formGroup.get('firstName').touched &&
+   formGroup.get('firstName').errors['minlength']"
+   >Min is 3.</label>
+  </div>
  <br>
  <div>
     <input type="text"
     formControlName = "lastName"
     placeholder="last name">
+
+    <label style="color: tomato;"
+    *ngIf=
+    "formGroup.get('lastName').invalid &&
+    formGroup.get('lastName').touched &&
+    formGroup.get('lastName').errors['required']"
+    >Required.</label>
+ 
+    <label style="color: tomato;"
+    *ngIf=
+    "formGroup.get('lastName').invalid &&
+    formGroup.get('lastName').touched &&
+    formGroup.get('lastName').errors['minlength']"
+    >Min is 3.</label>
   </div>
   <br>
   <div>
       <input type="text"
       formControlName = "Email"
       placeholder="email">
+
+      <label style="color: tomato;"
+      *ngIf=
+      "formGroup.get('Email').invalid &&
+      formGroup.get('Email').touched &&
+      formGroup.get('Email').errors['Email']"
+      >E-mail is invalid.</label>
     </div>
     <br>
     <div>
-        <input type="text"
+        <input type="number"
         formControlName = "Age"
-        placeholder="age">
+        placeholder="age"
+        min="1" 
+        max="99">
+        <label style="color: tomato;"
+        *ngIf=
+        "formGroup.get('Age').invalid &&
+        formGroup.get('Age').touched &&
+        formGroup.get('Age').errors['max']"
+        >Between is 0 and 99</label>
+        
+        <label style="color: tomato;"
+        *ngIf=
+        "formGroup.get('Age').invalid &&
+        formGroup.get('Age').touched &&
+        formGroup.get('Age').errors['min']"
+        >Between is 0 and 99</label>
       </div>
       <br>
   <div>
