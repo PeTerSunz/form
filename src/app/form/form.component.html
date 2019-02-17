@@ -1,3 +1,15 @@
-<p>
-  form works!
-</p>
+<form [formGroup] = "formGroup" (ngSubmit)="onSubmit(formGroup)">  
+  <!-- เป็นการบอกform นี้ว่า form นี้เป็นของ Angular ไม่ใช่ของ Html -->
+ <div>
+   <input type="text"
+   formControlName = "firstName"
+   placeholder="first name">
+ </div>
+ <div>
+    <input type="text"
+    formControlName = "lastName"
+    placeholder="last name">
+  </div>
+  <div>
+    <button>submit</button>
+  </div>

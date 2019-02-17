@@ -17,8 +17,11 @@ export class FormComponent implements OnInit {
   }
   ngOnInit(){
    this.formGroup = this.fb.group ({
-     firstname: this.fb.control(''), //formcontrol แบบเต็ม
-     lastname: [''] //formcontrol แบบย่อ
+     firstName: this.fb.control(''), //formcontrol แบบเต็ม
+     lastName: [''] //formcontrol แบบย่อ
    })}
-
+   
+   onSubmit(form: FormGroup){
+     console.log(form);
+   }
 }
